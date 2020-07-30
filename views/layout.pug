@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    title= title
+    meta(name='viewport' content='width=device-width, user-scalable=no')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    link(rel="stylesheet", href="/main.css")
+  body
+    .container
+      .profile-wrap
+        .profile
+          if user && user.id
+            .user-name= 'Hello! ' + user.nick + '.'
+            .user-money= 'Holding Stock: ' + user.money + '.'
+            input#my-id(type='hidden' value=user.id)
+            a#logout.btn(href='/auth/logout') logout
+            a#register.btn(href='/good') register item
+          else
+            form#login-form(action='/auth/login' method='post')
+              .input-group
+                label(for='email') email
+                input#email(type='email' name='email' required autofocus)
+              .input-group
+                label(for='password') password
+                input#password(type='password' name='password' required)
+              if loginError
+                .error-message= loginError
+              a#join.btn(href='/join') register
+              button#login.btn(type='submit') login
+        footer
+          | Made by&nbsp;
+          a(href='https://naver.com' target='_blank') Woop
+      block good
+    block content
