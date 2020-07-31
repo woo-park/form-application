@@ -10,26 +10,26 @@ html
     .container
       .profile-wrap
         .profile
-          if user && user.id
-            .user-name= 'Hello! ' + user.nick + '.'
-            .user-money= 'Holding Stock: ' + user.money + '.'
-            input#my-id(type='hidden' value=user.id)
-            a#logout.btn(href='/auth/logout') logout
-            a#register.btn(href='/good') register item
-          else
-            form#login-form(action='/auth/login' method='post')
-              .input-group
-                label(for='email') email
-                input#email(type='email' name='email' required autofocus)
-              .input-group
-                label(for='password') password
-                input#password(type='password' name='password' required)
-              if loginError
-                .error-message= loginError
-              a#join.btn(href='/join') register
-              button#login.btn(type='submit') login
+        if user && user.id
+          .user-name= 'Hello! ' + user.nick + '.'
+          .user-money= 'Holding Stock: ' + user.money + '.'
+          input#my-id(type='hidden' value=user.id)
+          a#logout.btn(href='/auth/logout') logout
+          a#register.btn(href='/good') register item
+        else
+          form#login-form(action='/auth/login' method='post')
+            .input-group
+              label(for='email') email
+              input#email(type='email' name='email' required autofocus)
+            .input-group
+              label(for='password') password
+              input#password(type='password' name='password' required)
+            if loginError
+              .error-message= loginError
+            a#join.btn(href='/join') register
+            button#login.btn(type='submit') login
         footer
           | Made by&nbsp;
           a(href='https://naver.com' target='_blank') Woop
-      block good
-    block content
+        block good
+      block content
