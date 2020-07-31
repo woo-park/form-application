@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title></title>
+        <link rel="stylesheet" href="/stylesheets/style.css">
+        <link rel="stylesheet" href="/main.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="profile-wrap">
+                <div class="profile">
+                    <% if (user && user.id) { %>
+                        <div class="user-name">HIIII <%= user.nick %> .</div>
+                        <div class="user-money">HIIII Stock <%= user.money %> .</div>
+                        <input id="my-id" type="hidden" value= <%= user.money %>>
+                        <a id="logout" class="btn" href="/auth/logout">logout</a>
+                        <a id="register" class="btn" href="/good">register item</a>
+                    <% } else { %>
+                        <form id="login-form" action="/auth/login" method="post">
+                            <div class='input-group'>
+                                <label for="email">LAYOUT2 EMAIL</label>
+                                <input id="email" type="text" name="email" required autofocus>
+                            </div>                                
+                            <div class='input-group'>
+                                <label for="password">password</label>
+                                <input id="password" type="password" name="password" required>
+                            </div>
+                          
+                            <a id="join" class="btn" href="/join">register</a>
+                            <button id="login" class="btn" type="submit">login</button>
+                        </form>    
+                    <% }%>
+                     
+                </div>
+            </div>
+       
+            <%- body %>
+        </div>
+        <footer>
+            <%- include('footer') %> 
+        </footer>
+         
+        <%- script %> 
+
+         <script>
+
+
+         </script>
+    </body>
+</html>

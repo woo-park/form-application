@@ -1,0 +1,25 @@
+<div class="timeline">
+    <h2>list</h2>
+    <table id="good-list">
+        <tr>
+            <th>Name</th>
+            <th>Image</th>
+            <th>Original Price</th>
+            <th>End Time</th>
+            <th>Enter</th>
+        </tr>
+        <% if (goods) { %>
+            <% goods.forEach(good => { %>
+                <tr>
+                    <td><%= good.name %> </td>
+                    <td> <img src='/img/<%= good.img %>' alt=""> </td>
+                    <td><%= good.price %> </td>
+                    <td class="time" data-start=<%= good.createdAt %>> 00:00:00</td>
+                    <td><a class="enter btn" href="/good/<%= good.id %>">입장</a></td>
+                </tr>
+            <% }) %>
+        <% } %>
+      
+    </table>
+
+</div>

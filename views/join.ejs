@@ -1,0 +1,25 @@
+<div class="timeline">
+        <div class="input-group">
+            <label for="join-email">email</label>
+            <input id="join-email" type="email" name='email'>
+        </div>
+        <div class="input-group">
+            <label for="join-nick">nickname</label>
+            <input id="join-nick" type="text" name='nick'>
+        </div>
+        <div class="input-group">
+            <label for="join-password">password</label>
+            <input id="join-password" type="password" name='password'>
+        </div>
+        <div class="input-group">
+            <label for="join-money">balance</label>
+            <input id="join-money" type="number" name='money'>
+        </div>
+        <% if (joinError) { %>
+            <div class="error-message"><%= joinError %> </div>
+                  
+        <% } %>
+        <button id="join-btn" class="btn" type="submit">register</button>
+    </form>
+
+</div>

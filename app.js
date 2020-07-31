@@ -14,6 +14,7 @@ const { sequelize } = require('./models');
 const passportConfig = require('./passport');
 
 const expressLayouts = require('express-ejs-layouts');
+// var ejsLocals = require('ejs-locals');   
 
 const app = express();
 sequelize.sync();
@@ -29,9 +30,17 @@ passportConfig(passport);
 //   },
 // })
 
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+
+// ejs-layouts setting
+app.set("layout extractScripts", true);
+app.set('layout', 'layout');
+
 app.use(expressLayouts);
+
 
 app.set('port', process.env.PORT || 8010);
 
@@ -55,7 +64,7 @@ app.use(passport.initialize());
 app.use(flash());
 
 app.use('/', indexRouter);
-app.use('/auth', authRouter);
+// app.use('/auth', authRouter);
 
 app.use((req, res, next) => {
   const err = new Error('Not Found');

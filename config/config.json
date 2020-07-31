@@ -2,21 +2,21 @@
   "development": {
     "username": "root",
     "password": "woop",
-    "database": "bidding_database_development",
+    "database": "bidding_database",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password": "woop",
-    "database": "bidding_database_test",
+    "database": "bidding_database",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
     "password": "woop",
-    "database": "bidding_database_production",
+    "database": "bidding_database",
     "host": "127.0.0.1",
     "dialect": "mysql"
   }
