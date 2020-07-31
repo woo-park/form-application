@@ -32,7 +32,7 @@ router.get('/join', (req, res, next) => {
   res.render('join', {
     title: '회원가입 - NodeAuction',
     joinError: req.flash('joinError'),
-  }, { layout: 'layou)
+  })
 });
 
 // router.get('/good', isLoggedIn, (req, res) => {
