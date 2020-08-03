@@ -20,24 +20,13 @@ const app = express();
 sequelize.sync();
 passportConfig(passport);
 
-// const sessionMiddleware = session({
-//   saveUninitialized: false,
-//   resave: false,
-//   secret: process.env.COOKIE_SECRET,
-//   cookie: {
-//     httpOnly: true,
-//     secure: false,
-//   },
-// })
-
-
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 
 // ejs-layouts setting
 app.set("layout extractScripts", true);
-app.set('layout', 'layout');
+app.set('layout', 'layout');    
 
 app.use(expressLayouts);
 
@@ -64,7 +53,7 @@ app.use(passport.initialize());
 app.use(flash());
 
 app.use('/', indexRouter);
-// app.use('/auth', authRouter);
+app.use('/auth', authRouter);
 
 app.use((req, res, next) => {
   const err = new Error('Not Found');

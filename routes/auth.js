@@ -9,6 +9,7 @@ const router = express.Router();
 router.post('/join', isNotLoggedIn, async (req, res, next) => {
     const {email, nick, password, money } = req.body;       
     try{
+        console.log('/join reached');
         const exUser = await User.findOne({ where: { email } } );       // interesting to see sending { email }
         if(exUser) {
             req.flash('joinError', 'User has been already registered');
@@ -49,6 +50,7 @@ router.post('/login', isNotLoggedIn, async(req, res, next) => {
                 return next(loginError);
             }
             //else
+            console.log('login all passed');
             return res.redirect('/')    
         });
 
