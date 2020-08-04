@@ -1,0 +1,17 @@
+<div class="timeline">
+    <form id="good-form" action="/good" method="post" enctype="multipart/form-data">
+        <div class="input-group">
+            <label for="good-name">상품명</label>
+            <input id="good-name" name='name' required autofocus type="text">
+        </div>
+        <div class="input-group">
+            <label for="good-photo">상품 사진</label>
+            <input id="good-photo" name='img' required type="file">
+        </div>
+        <div class="input-group">
+            <label for="good-price">시작 가격</label>
+            <input id="good-price" name='price' type="number" required>
+        </div>
+        <button id="join-btn" class="btn">상품 등록</button>
+    </form>
+</div>

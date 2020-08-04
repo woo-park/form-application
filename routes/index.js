@@ -9,6 +9,7 @@ const { isLoggedIn, isNotLoggedIn } = require('./middlewares');
 const router = express.Router();
 
 router.use((req, res, next) => {
+  console.log(req.user,'req.user');
   res.locals.user = req.user;       //storing user on res
   next();
 });
@@ -18,6 +19,7 @@ router.get('/', async function(req, res, next) {
   try {
     const goods = await Good.findAll({ where: { soldId: null } });
     console.log(goods,'goods');
+    console.log(res.locals.user,'res.locals.user')
     res.render('main', {
       title: 'NodeAuction',
       goods: goods,

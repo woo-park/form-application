@@ -1,4 +1,7 @@
 <div class="timeline">
+    <% if (user && user.id) { %>
+        <h1> <%= user.name %> </h1>
+    <% } %>
     <h2>경매 진행 목록<h2>
     <table id="good-list">
         <tr>
@@ -8,6 +11,7 @@
             <th>End Time</th>
             <th>Entered Time</th>
         </tr>
+       
         <% goods.forEach(good => { %>
             <tr>
                 <td><%= good.name %> </td>

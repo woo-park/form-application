@@ -7,10 +7,11 @@ module.exports = (passport) => {
     });
 
     passport.deserializeUser((id, done) => {        // used when?
+        console.log('deserialize');
         User.findOne({ where: { id } })
-            .then(user => done(null, user))
+            .then(user => {console.log(user,'ussss'); done(null, user)})
             .catch((err) => done(err));
     })
 
     local(passport);
-}
+};

@@ -25,11 +25,11 @@ app.set('view engine', 'ejs');
 
 
 // ejs-layouts setting
-app.set("layout extractScripts", true);
-app.set('layout', 'layout');    
+
 
 app.use(expressLayouts);
-
+app.set("layout extractScripts", true);
+app.set('layout', 'layout');    
 
 app.set('port', process.env.PORT || 8010);
 
@@ -50,6 +50,7 @@ app.use(expressSession({
   },
 }));
 app.use(passport.initialize());
+app.use(passport.session());
 app.use(flash());
 
 app.use('/', indexRouter);

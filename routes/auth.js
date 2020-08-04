@@ -44,6 +44,8 @@ router.post('/login', isNotLoggedIn, async(req, res, next) => {
             res.redirect('/');
         }
 
+        console.log(user,'useraaaa')
+
         return req.login(user, (loginError) => {            //!important  // whats this     // i think req.login is given by the passport
             if (loginError) {
                 console.error(loginError);
